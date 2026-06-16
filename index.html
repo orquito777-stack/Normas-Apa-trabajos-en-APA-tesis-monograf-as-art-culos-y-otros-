@@ -1,0 +1,664 @@
+html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajos con Normas APA | Servicios Profesionales</title>
+    <!-- Fuentes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (gratis) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== RESET Y BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8faff;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== BOTÓN FLOTANTE WHATSAPP ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: #0b1a33;
+            color: #fff;
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: #fbbf24;
+        }
+        .logo p {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            margin-top: -4px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        nav ul li a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+        nav ul li a:hover {
+            color: #fbbf24;
+            border-bottom-color: #fbbf24;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, #0b1a33 0%, #1a365d 100%);
+            color: #fff;
+            padding: 80px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -10%;
+            top: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(251, 191, 36, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-text h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-text h2 span {
+            color: #fbbf24;
+        }
+        .hero-text p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+        .hero-text .btn {
+            display: inline-block;
+            background: #fbbf24;
+            color: #0b1a33;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3);
+        }
+        .hero-text .btn:hover {
+            background: #fcd34d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(251, 191, 36, 0.4);
+        }
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-height: 400px;
+        }
+
+        /* ===== SERVICIOS ===== */
+        .servicios {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #0b1a33;
+        }
+        .section-title h2 span {
+            color: #fbbf24;
+        }
+        .section-title p {
+            color: #64748b;
+            max-width: 600px;
+            margin: 10px auto 0;
+        }
+        .grid-servicios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+        .card-servicio {
+            background: #f8faff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e9eef6;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.02);
+        }
+        .card-servicio:hover {
+            transform: translateY(-10px);
+            border-color: #fbbf24;
+            box-shadow: 0 16px 40px rgba(11, 26, 51, 0.08);
+        }
+        .card-servicio i {
+            font-size: 3rem;
+            color: #fbbf24;
+            margin-bottom: 15px;
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 16px;
+            display: inline-block;
+        }
+        .card-servicio h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .card-servicio p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* ===== SOBRE NOSOTROS ===== */
+        .sobre {
+            padding: 80px 0;
+            background: #f1f5f9;
+        }
+        .sobre-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .sobre-image img {
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .sobre-text h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0b1a33;
+            margin-bottom: 20px;
+        }
+        .sobre-text h3 span {
+            color: #fbbf24;
+        }
+        .sobre-text p {
+            color: #334155;
+            margin-bottom: 16px;
+        }
+        .sobre-text .info-contacto {
+            background: #fff;
+            padding: 20px 25px;
+            border-radius: 16px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .sobre-text .info-contacto p {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        .sobre-text .info-contacto i {
+            color: #fbbf24;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* ===== CONTACTO ===== */
+        .contacto {
+            padding: 80px 0;
+            background: #fff;
+        }
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .contacto-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0b1a33;
+        }
+        .contacto-info p {
+            color: #475569;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .contacto-info i {
+            color: #fbbf24;
+            width: 28px;
+            font-size: 1.2rem;
+        }
+        .contacto-info .btn-wsp {
+            display: inline-block;
+            background: #25d366;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+        }
+        .contacto-info .btn-wsp:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.4);
+        }
+        .contacto-form {
+            background: #f8faff;
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid #e9eef6;
+        }
+        .contacto-form input,
+        .contacto-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #dce2ec;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            background: #fff;
+            transition: border 0.3s;
+        }
+        .contacto-form input:focus,
+        .contacto-form textarea:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.15);
+        }
+        .contacto-form button {
+            background: #0b1a33;
+            color: #fff;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        .contacto-form button:hover {
+            background: #fbbf24;
+            color: #0b1a33;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #0b1a33;
+            color: #cbd5e1;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+        footer .logo-footer {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        footer .logo-footer span {
+            color: #fbbf24;
+        }
+        footer p {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        footer .social {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        footer .social a {
+            color: #cbd5e1;
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        footer .social a:hover {
+            color: #fbbf24;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #1e3a5f;
+            margin: 20px 0 10px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-image img {
+                max-height: 300px;
+                width: 80%;
+                margin: 0 auto;
+            }
+            .sobre-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .sobre-text .info-contacto p {
+                justify-content: center;
+            }
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #0b1a33;
+                padding: 20px 0;
+                margin-top: 16px;
+                border-top: 1px solid #1e3a5f;
+                gap: 16px;
+            }
+            nav ul.open {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-text h2 {
+                font-size: 2.4rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 50px 0;
+            }
+            .card-servicio {
+                padding: 20px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/573118600496?text=Hola%20Orlando%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios%20con%20normas%20APA." target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>APA<span>PRO</span></h1>
+                <p>TRABAJOS ACADÉMICOS DE EXCELENCIA</p>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#sobre">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO / INICIO -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h2>Tu proyecto <span>con Normas APA</span> al más alto nivel</h2>
+                <p>Elaboramos tesis, monografías, ensayos, artículos, presentaciones y más. Calidad, originalidad y cumplimiento estricto de las normas.</p>
+                <a href="#contacto" class="btn">Solicita tu presupuesto</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estudio y redacción académica">
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros <span>Servicios</span></h2>
+                <p>Soluciones integrales para tu vida académica y profesional, siempre bajo las normas APA vigentes.</p>
+            </div>
+            <div class="grid-servicios">
+                <div class="card-servicio">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Tesis de Grado</h3>
+                    <p>Asesoría y redacción completa de tesis, desde el planteamiento hasta la defensa.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Monografías</h3>
+                    <p>Investigación exhaustiva y estructuración conforme a normas APA.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-pencil-alt"></i>
+                    <h3>Ensayos</h3>
+                    <p>Ensayos críticos y argumentativos con citación y referencias impecables.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-newspaper"></i>
+                    <h3>Artículos Científicos</h3>
+                    <p>Redacción y maquetación de artículos para revistas indexadas.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-presentation"></i>
+                    <h3>Presentaciones PowerPoint</h3>
+                    <p>Diseño profesional de diapositivas con contenido claro y visual.</p>
+                </div>
+                <div class="card-servicio">
+                    <i class="fas fa-star"></i>
+                    <h3>Reseñas & más</h3>
+                    <p>Reseñas críticas, resúmenes, informes y todo tipo de trabajo académico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-image">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Equipo profesional">
+                </div>
+                <div class="sobre-text">
+                    <h3>Gerente <span>Orlando M. Naranjo</span></h3>
+                    <p>Con más de 15 años de experiencia en el mundo académico, lideramos un equipo de especialistas en metodología de investigación y redacción científica. Nuestro compromiso es entregar trabajos impecables, originales y ajustados a las normas APA en su última edición.</p>
+                    <p>Nos distinguimos por la calidad humana, la puntualidad y la atención personalizada a cada cliente.</p>
+                    <div class="info-contacto">
+                        <p><i class="fas fa-phone-alt"></i> <strong>Teléfono:</strong> 311 860 0496</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> orquito777@gmail.com</p>
+                        <p><i class="fas fa-user-tie"></i> <strong>Gerente:</strong> Orlando M. Naranjo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos <span>ahora</span></h2>
+                <p>Estamos listos para ayudarte con tu proyecto. Escríbenos o llámanos.</p>
+            </div>
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <h3>Información de contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia (atención remota)</p>
+                    <p><i class="fas fa-phone-alt"></i> 311 860 0496</p>
+                    <p><i class="fas fa-envelope"></i> orquito777@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Lunes a viernes 8:00 AM – 8:00 PM</p>
+                    <a href="https://wa.me/573118600496?text=Hola%20Orlando%2C%20necesito%20informaci%C3%B3n%20sobre%20sus%20servicios%20con%20normas%20APA." target="_blank" class="btn-wsp">
+                        <i class="fab fa-whatsapp"></i> Chatea con nosotros
+                    </a>
+                    <div style="margin-top: 20px; font-size: 0.95rem; color: #475569;">
+                        <i class="fas fa-check-circle" style="color: #fbbf24;"></i> Respuesta en menos de 2 horas
+                    </div>
+                </div>
+                <div class="contacto-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Tu nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Teléfono (opcional)">
+                        <textarea rows="4" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
+                        <button type="submit">Enviar mensaje <i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="logo-footer">APA<span>PRO</span></div>
+            <p>© 2026 · Trabajos con Normas APA · Excelencia académica</p>
+            <div class="social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:orquito777@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <hr>
+            <p style="font-size: 0.8rem; opacity: 0.7;">Gerente: Orlando M. Naranjo · orquito777@gmail.com · 311 860 0496</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript para menú hamburguesa -->
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('open');
+        });
+
+        // Cerrar menú al hacer clic en un enlace (en móvil)
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-menu').classList.remove('open');
+            });
+        });
+
+        // Manejo básico del formulario (solo simulación)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Orlando M. Naranjo te responderá a la brevedad.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
